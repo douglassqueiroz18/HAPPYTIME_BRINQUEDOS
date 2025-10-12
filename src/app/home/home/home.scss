@@ -1,0 +1,37 @@
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  background: linear-gradient(90deg, #e5ff00, #0000ff); /* exemplo: vermelho → azul */
+  color: #fff;
+
+  .nav-buttons {
+    display: flex;
+    gap: 12px;
+
+    button {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+  }
+
+  .logo {
+    flex: 1;
+    text-align: center;
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    /* Borda preta */
+    -webkit-text-stroke: 2px black; /* contorno preto */
+    text-stroke: 2px black;         /* fallback */
+
+    .happ { color: red; }
+    .py { color: blue; }
+    .ti { color: blue; }
+    .me { color: #39FF14; }
+  }
+}
