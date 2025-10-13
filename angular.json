@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/happytime-frontend",
+            "outputPath": "dist/browser/happytime-frontend",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
