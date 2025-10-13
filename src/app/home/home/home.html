@@ -1,19 +1,56 @@
-<mat-toolbar class="header-toolbar">
-  <nav class="nav-buttons">
-    <button mat-button>Home</button>
+<mat-toolbar class="header-toolbar" [ngClass]="{ 'small-screen': isSmallScreen }">
+  <div class="nav-buttons">
     <button mat-button>Produtos</button>
     <button mat-button>Contato</button>
-  </nav>
+  </div>
 
   <span class="logo">
-    <span [style.color]="getColor(0)">H</span>
-    <span [style.color]="getColor(1)">A</span>
-    <span [style.color]="getColor(2)">P</span>
-    <span [style.color]="getColor(3)">P</span>
-    <span [style.color]="getColor(4)">Y</span>
-    <span [style.color]="getColor(5)">T</span>
-    <span [style.color]="getColor(6)">I</span>
-    <span [style.color]="getColor(7)">M</span>
-    <span [style.color]="getColor(8)">E</span>
+    <span *ngFor="let letter of letters; let i = index" [style.color]="getColor(i)">
+      {{ letter }}
+    </span>
   </span>
 </mat-toolbar>
+
+<!-- Sessão principal -->
+<div class="wave-bg">
+  <div class="card-container">
+    <div class="card">
+      <div class="card-body">
+        <div class="card promo-card">
+          <div class="promo-badge">🔥 PROMOÇÃO</div>
+          <div class="card-body">
+            <h5 class="promo-title">UM DIA INTEIRO COM ATÉ 50%</h5>
+            <p class="promo-text">Aproveite os descontos por tempo limitado.</p>
+            <a href="#" class="promo-btn">CHAME NO WHATSAPP</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="card promo-card">
+          <div class="promo-badge">🔥 PROMOÇÃO</div>
+          <div class="card-body">
+            <h5 class="promo-title">UM DIA INTEIRO COM ATÉ 50%</h5>
+            <p class="promo-text">Aproveite os descontos por tempo limitado.</p>
+            <a href="#" class="promo-btn">CHAME NO WHATSAPP</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="card promo-card">
+          <div class="promo-badge">🔥 PROMOÇÃO</div>
+          <div class="card-body">
+            <h5 class="promo-title">UM DIA INTEIRO COM ATÉ 50%</h5>
+            <p class="promo-text">Aproveite os descontos por tempo limitado.</p>
+            <a href="#" class="promo-btn">CHAME NO WHATSAPP</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,46 +1,45 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { CommonModule } from '@angular/common'; // substitui BrowserModule
-import { MatButtonModule } from '@angular/material/button'; // exemplo adicional, se precisar
+import { MatButtonModule } from '@angular/material/button';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CommonModule,        // substitui BrowserModule
-    MatToolbarModule,
-    MatButtonModule      // se precisar de botões
-  ],
-  animations:[
+  imports: [CommonModule, MatToolbarModule, MatButtonModule],
+  templateUrl: './home.html',
+  styleUrls: ['./home.scss'],
+  animations: [
     trigger('logoAnim', [
       state('normal', style({ transform: 'scale(1)' })),
-      state('hover', style({ transform: 'scale(1.2)', color: '#FFD700' })),
+      state('hover', style({ transform: 'scale(1.2)' })),
       transition('normal <=> hover', animate('300ms ease-in-out'))
     ])
-  ],
-  templateUrl: './home.html',
-  styleUrls: ['./home.scss'], // corrige typo: styleUrls, não styleUrl
+  ]
 })
-export class Home {
+export class HomeComponent {
   logoState = 'normal';
+  letters = 'HAPPYTIME'.split('');
+  isSmallScreen = false;
+
+  colors = ['#ff4c4c', '#4c6cff', '#39FF14', '#ff8c00', '#9b59b6', '#ffd700'];
+  currentIndex = 0;
+
+  constructor(private breakpointObserver: BreakpointObserver) {
+    setInterval(() => this.currentIndex = (this.currentIndex + 1) % this.colors.length, 500);
+    this.breakpointObserver.observe([Breakpoints.Handset])
+    .subscribe(result => {
+      this.isSmallScreen = result.matches;
+    });
+  }
 
   toggleLogo() {
     this.logoState = this.logoState === 'normal' ? 'hover' : 'normal';
   }
-  colors = ['red', 'blue', '#39FF14', 'orange', 'purple', 'yellow'];
-  currentIndex = 0;
-    // Retorna cor atual para cada letra
-  getColor(letterIndex: number): string {
-    const total = this.colors.length;
-    // Desloca as cores para criar efeito carrossel
-    return this.colors[(this.currentIndex + letterIndex) % total];
-  }
 
-  // Muda índice a cada 500ms
-  constructor() {
-    setInterval(() => {
-      this.currentIndex = (this.currentIndex + 1) % this.colors.length;
-    }, 500);
+  getColor(letterIndex: number): string {
+    return this.colors[(this.currentIndex + letterIndex) % this.colors.length];
   }
 }

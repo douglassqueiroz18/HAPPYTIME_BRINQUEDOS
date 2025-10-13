@@ -1,37 +1,194 @@
+/* ================= Toolbar + Responsividade ================= */
 .header-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
-  background: linear-gradient(90deg, #e5ff00, #0000ff); /* exemplo: vermelho → azul */
-  color: #fff;
+  flex-wrap: wrap;
+  padding: 3rem 1rem;
+  background: linear-gradient(270deg, #00c3ff, #9bb5e4, #0072ff);
+  background-size: 600% 600%;
+  animation: waveBackground 12s ease infinite; // 💥 usa mesma animação da sessão
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+
+  &.small-screen {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
 
   .nav-buttons {
     display: flex;
-    gap: 12px;
+    gap: 1rem;
 
     button {
       font-weight: bold;
-      font-size: 1.1rem;
-      color: #fff;
+      color: white;
+      transition: transform 0.2s;
+      &:hover {
+        transform: scale(1.1);
+        color: #ffd700;
+      }
     }
   }
 
   .logo {
-    flex: 1;
-    text-align: center;
-    font-family: 'Arial Black', 'Impact', sans-serif;
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
+  flex: 2;
+  text-align: center;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 4rem);
+  letter-spacing: 2px;
+  -webkit-text-stroke: 2px black;
+  text-shadow:
+    2px 2px 0 #000,
+    0 0 20px #ffd700,
+    0 0 40px #ff8c00;
+  cursor: pointer;
+  transition: transform 0.3s;
 
-    /* Borda preta */
-    -webkit-text-stroke: 2px black; /* contorno preto */
-    text-stroke: 2px black;         /* fallback */
+  &:hover {
+    transform: scale(1.05);
+  }
 
-    .happ { color: red; }
-    .py { color: blue; }
-    .ti { color: blue; }
-    .me { color: #39FF14; }
+  span {
+    display: inline-block; // 🟢 movido para cima
+    animation: glow 1.5s infinite alternate; // 🟢 movido para cima
+
+    @keyframes glow {
+      0% { text-shadow: 2px 2px 0 #000, 0 0 10px #ffd700; }
+      50% { text-shadow: 2px 2px 0 #000, 0 0 25px #ff4500; }
+      100% { text-shadow: 2px 2px 0 #000, 0 0 10px #ffd700; }
+    }
+  }
+}
+
+}
+
+/* ================= Fundo animado e cards ================= */
+.wave-bg {
+  background: linear-gradient(270deg, #00c3ff, #9bb5e4, #0072ff);
+  background-size: 600% 600%;
+  animation: waveBackground 12s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 💧 mesma animação compartilhada */
+@keyframes waveBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ================= Cards ================= */
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  width: 18rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+  }
+}
+/* ================= Promoção ================= */
+
+.promo-card {
+  position: relative;
+  overflow: hidden;
+  width: 16rem;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulseGlow 2.5s infinite alternate;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 1);
+  }
+
+  .promo-badge {
+    position: absolute;
+    top: 1rem;
+    left: -2.5rem;
+    background: #ffd700;
+    color: #000;
+    font-weight: 900;
+    font-size: 1rem;
+    transform: rotate(-25deg);
+    padding: 0.4rem 3rem;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+    text-transform: uppercase;
+  }
+
+  .promo-body {
+    margin-top: 2.5rem;
+  }
+
+  .promo-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 0.8rem;
+    text-shadow: 2px 2px 5px #000;
+  }
+
+  .promo-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .promo-btn {
+  display: inline-block;
+  background: #000;
+  color: #ffd700;
+  padding: 0.6rem 1.5rem; // 🔹 aumenta conforto visual
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background: #ffd700;
+    color: #000;
+    border: 2px solid #000;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 35px rgba(255, 140, 0, 1);
   }
 }
