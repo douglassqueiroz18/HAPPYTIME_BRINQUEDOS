@@ -12,6 +12,7 @@ bootstrapApplication(App, {
       { path: '', component: HomeComponent },
       { path: 'home', component: HomeComponent },
       { path: '**', redirectTo: '' },
+      { path: '/', redirectTo: ''}
     ],
     withHashLocation()
 
