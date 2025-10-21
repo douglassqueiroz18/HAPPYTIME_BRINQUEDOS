@@ -21,7 +21,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class HomeComponent {
   logoState = 'normal';
-  letters = 'HAPPYTIMEEE'.split('');
+  letters = 'HAPPYTIME'.split('');
   isSmallScreen = false;
 
   colors = ['#ff4c4c', '#4c6cff', '#39FF14', '#ff8c00', '#9b59b6', '#ffd700'];
