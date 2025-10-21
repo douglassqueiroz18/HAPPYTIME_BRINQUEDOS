@@ -9,10 +9,9 @@ bootstrapApplication(App, {
   providers: [
     importProvidersFrom(BrowserAnimationsModule),
     provideRouter([
-      { path: '', component: HomeComponent },
+      { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: '**', redirectTo: '' },
-      { path: '/', redirectTo: ''}
     ],
     withHashLocation()
 
