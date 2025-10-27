@@ -1,0 +1,11 @@
+<mat-toolbar>Área Administrativa</mat-toolbar>
+
+<div class="container p-3">
+  <input type="text" class="form-control mb-2" placeholder="Desconto bloco 1" [(ngModel)]="descontoBloco1" />
+  <input type="text" class="form-control mb-2" placeholder="Desconto bloco 2" [(ngModel)]="descontoBloco2" />
+  <input type="text" class="form-control mb-2" placeholder="Desconto bloco 3" [(ngModel)]="descontoBloco3" />
+
+  <button mat-raised-button color="primary" (click)="updateDesconto()">
+    Atualizar descontos
+  </button>
+</div>

@@ -1,6 +1,7 @@
+
 <mat-toolbar class="header-toolbar" [ngClass]="{ 'small-screen': isSmallScreen }">
   <div class="nav-buttons">
-    <!--<button mat-button>Produtos</button>-->
+    <button mat-button>Produtos</button>
   <a mat-button href="https://meuairgo.com.br/f7022a72" target="_blank">Contato</a>
   </div>
 
@@ -19,9 +20,9 @@
         <div class="card promo-card">
           <div class="promo-badge">🔥 PROMOÇÃO</div>
           <div class="card-body">
-            <h5 class="promo-title">UM DIA INTEIRO COM ATÉ 50%</h5>
+            <h5 class="promo-title">UMA FESTA INTEIRA COM ATÉ {{ descontoBloco1 }}%</h5>
             <p class="promo-text">Aproveite os descontos por tempo limitado.</p>
-            <a href="#" class="promo-btn">CHAME NO WHATSAPP</a>
+            <a [href]="getWhatsAppLink(descontoBloco1)" class="promo-btn" target="_blank" rel="noopener">CHAME NO WHATSAPP</a>
           </div>
         </div>
       </div>
@@ -32,9 +33,9 @@
         <div class="card promo-card">
           <div class="promo-badge">🔥 PROMOÇÃO</div>
           <div class="card-body">
-            <h5 class="promo-title">UM DIA INTEIRO COM ATÉ 50%</h5>
+            <h5 class="promo-title">UMA FESTA INTEIRA COM ATÉ {{ descontoBloco2 }}%</h5>
             <p class="promo-text">Aproveite os descontos por tempo limitado.</p>
-            <a href="#" class="promo-btn">CHAME NO WHATSAPP</a>
+            <a [href]="getWhatsAppLink(descontoBloco2)" class="promo-btn" target="_blank" rel="noopener">CHAME NO WHATSAPP</a>
           </div>
         </div>
       </div>
@@ -45,9 +46,9 @@
         <div class="card promo-card">
           <div class="promo-badge">🔥 PROMOÇÃO</div>
           <div class="card-body">
-            <h5 class="promo-title">UM DIA INTEIRO COM ATÉ 50%</h5>
+            <h5 class="promo-title">UMA FESTA INTEIRA COM ATÉ {{ descontoBloco3 }}%</h5>
             <p class="promo-text">Aproveite os descontos por tempo limitado.</p>
-            <a href="#" class="promo-btn">CHAME NO WHATSAPP</a>
+            <a [href]="getWhatsAppLink(descontoBloco3)" class="promo-btn" target="_blank" rel="noopener">CHAME NO WHATSAPP</a>
           </div>
         </div>
       </div>
